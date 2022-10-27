@@ -7,4 +7,9 @@
             <class name="org.tms.tests.LoginPageTest"></class>
         </classes>
     </test>
+    <test name="Inventory Page Test">
+            <classes>
+                <class name="org.tms.tests.InventoryPageTest"></class>
+        </classes>
+    </test>
 </suite>

@@ -1,7 +1,6 @@
 package org.tms.services;
 
 import org.tms.model.User;
-import org.tms.pages.BasePage;
 import org.tms.pages.InventoryPage;
 import org.tms.pages.LoginPage;
 

@@ -7,7 +7,6 @@ import org.tms.driver.DriverSingleton;
 public abstract class BasePage {
 
     protected WebDriver driver = DriverSingleton.getDriver();
-
     protected BasePage() {
         PageFactory.initElements(driver, this);
     }
