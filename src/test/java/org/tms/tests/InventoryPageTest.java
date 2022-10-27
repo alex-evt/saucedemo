@@ -1,6 +1,7 @@
 package org.tms.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.tms.model.User;
 import org.tms.services.InventoryPageService;
@@ -10,12 +11,18 @@ import org.tms.services.LoginPageService;
 
 public class InventoryPageTest extends BaseTest{
 
-    @Test(priority = 1)
-    public void verifySelectSecondOption(){
+    InventoryPageService inventoryPageService;
+
+    @BeforeMethod
+    public void openInventoryPage(){
         LoginPageService loginPageService = new LoginPageService();
         User user = new User();
-        InventoryPageService inventoryPageService = new InventoryPageService();
+        inventoryPageService = new InventoryPageService();
         loginPageService.login(user);
+    }
+
+    @Test(priority = 1)
+    public void verifySelectSecondOption(){
         String actualSelectedOption = inventoryPageService
                 .selectSecondOptionInSortContainer();
         String expectedSelectedOption = "Name (Z to A)";
@@ -24,10 +31,6 @@ public class InventoryPageTest extends BaseTest{
 
     @Test(priority = 2)
     public void verifyAddToCartButton(){
-        LoginPageService loginPageService = new LoginPageService();
-        User user = new User();
-        InventoryPageService inventoryPageService = new InventoryPageService();
-        loginPageService.login(user);
         String actualTextOfCartPage = inventoryPageService
                 .addToCartSauceLabsOnesie()
                 .getPageName();
