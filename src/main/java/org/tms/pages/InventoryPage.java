@@ -18,6 +18,9 @@ public class InventoryPage extends BasePage{
     @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-onesie']")
     private WebElement addToCartSauceLabsOnesie;
 
+    @FindBy(xpath = "//img[@alt='Sauce Labs Onesie']")
+    private WebElement imageSauceLabsOnesie;
+
     public void clickShoppingCart(){
         shoppingCart.click();
     }
@@ -37,6 +40,10 @@ public class InventoryPage extends BasePage{
         return select.getFirstSelectedOption().getText();
     }
 
+    public InventoryPage waitForSauceLabsOnesieImage(){
+        waitVisibilityOf(imageSauceLabsOnesie);
+        return this;
+    }
 
     public String getTextOfNameOfPageSelection() {
         return nameOfPageSelection.getText();

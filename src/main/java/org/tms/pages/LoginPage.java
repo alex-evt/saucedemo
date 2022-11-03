@@ -14,7 +14,7 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@id='login-button']")
     private WebElement loginButton;
 
-    public LoginPage openPage(String url){
+     public LoginPage openPage(String url){
         driver.get(url);
         return this;
     }
@@ -33,5 +33,10 @@ public class LoginPage extends BasePage {
 
     public void clickLoginButton() {
         loginButton.click();
+    }
+
+    public LoginPage waitForIcon(){
+        waitVisibilityOf(loginButton);
+        return this;
     }
 }

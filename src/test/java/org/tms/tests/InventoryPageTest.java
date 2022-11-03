@@ -24,7 +24,7 @@ public class InventoryPageTest extends BaseTest{
     @Test(priority = 1)
     public void verifySelectSecondOption(){
         String actualSelectedOption = inventoryPageService
-                .selectSecondOptionInSortContainer();
+                .getTextAndSelectSecondOptionInSortContainer();
         String expectedSelectedOption = "Name (Z to A)";
         Assert.assertEquals(actualSelectedOption,expectedSelectedOption, "The actual selection does not match the expected!");
     }

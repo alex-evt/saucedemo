@@ -1,6 +1,5 @@
 package org.tms.services;
 
-import org.openqa.selenium.WebElement;
 import org.tms.pages.CartPage;
 import org.tms.pages.InventoryPage;
 
@@ -21,9 +20,10 @@ public class InventoryPageService {
                 .getTextSelectedOption();
     }
 
-    public String selectSecondOptionInSortContainer() {
-        return inventoryPage.
-                selectOptionByTextInTheProductSortSelector(SECOND_OPTION_PRODUCT_SORT)
+    public String getTextAndSelectSecondOptionInSortContainer() {
+        return inventoryPage
+                .waitForSauceLabsOnesieImage()
+                .selectOptionByTextInTheProductSortSelector(SECOND_OPTION_PRODUCT_SORT)
                 .getTextSelectedOption();
     }
 
