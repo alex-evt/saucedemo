@@ -62,7 +62,7 @@ public class Listener implements ITestListener {
         return TimeUnit.MILLISECONDS
                 .toSeconds(iTestResult.getEndMillis() - iTestResult.getStartMillis());
     }
-
+    @Attachment(value = "screenshot", type = "image/png")
     public byte[] takeScreenshot(){
         return ((TakesScreenshot) DriverSingleton.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
