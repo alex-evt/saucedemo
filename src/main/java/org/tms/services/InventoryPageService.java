@@ -1,5 +1,6 @@
 package org.tms.services;
 
+import io.qameta.allure.Step;
 import org.tms.pages.CartPage;
 import org.tms.pages.InventoryPage;
 
@@ -14,12 +15,13 @@ public class InventoryPageService {
 
     protected InventoryPage inventoryPage = new InventoryPage();
 
+
     public String selectFirstOptionInSortContainer() {
         return inventoryPage
                 .selectOptionByTextInTheProductSortSelector(FIRST_OPTION_PRODUCT_SORT)
                 .getTextSelectedOption();
     }
-
+    @Step("Selecting second option in the sort product dropdown")
     public String getTextAndSelectSecondOptionInSortContainer() {
         return inventoryPage
                 .waitForSauceLabsOnesieImage()
@@ -38,7 +40,7 @@ public class InventoryPageService {
                 selectOptionByTextInTheProductSortSelector(FOURTH_OPTION_PRODUCT_SORT)
                 .getTextSelectedOption();
     }
-
+    @Step("Verify adding to cart and go to cart ")
     public CartPage addToCartSauceLabsOnesie() {
         inventoryPage
                 .clickAddToCartButtonSauceLabsOnesie()
