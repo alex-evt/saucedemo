@@ -34,7 +34,6 @@ public class Listener implements ITestListener {
                 getExecutionTime(iTestResult)));
         takeScreenshot();
     }
-
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
         System.out.println(String.format(
