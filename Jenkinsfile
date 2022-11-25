@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     parameters{
-        choice name: "browser", choices: ['chrome','firefox','opera'], description: "Choose a browser"
-        string name: "surefire", defaultValue: "src/test/resources/testng-smoke.xml", description: "surefire path"
+        choice choices: ['chrome','firefox','opera'], description: "Choose a browser", name: "browser"
+        string defaultValue: "src/test/resources/testng-smoke.xml", description: "surefire path", name: "surefire"
     }
 
     stages {
