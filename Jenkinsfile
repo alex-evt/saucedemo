@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters{
-        choice name: "browser", choice: ['chrome','firefox','opera'], description: "Choose a browser"
+        choice name: "browser", choices: ['chrome','firefox','opera'], description: "Choose a browser"
         string name: "surefire", defaultValue: "src/test/resources/testng-smoke.xml", description: "surefire path"
     }
 
