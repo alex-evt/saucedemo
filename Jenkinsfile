@@ -1,10 +1,11 @@
 pipeline {
     agent any
 
-//     parameters{
-// //         choice choices: ['chrome','firefox','opera'], description: "Choose a browser", name: "browser"
-//         string defaultValue: "src/test/resources/testng-smoke.xml", description: "surefire path", name: "surefire"
-//     }
+    parameters{
+        choice name: "browser", choices: ['chrome','firefox','opera'], description: "Choose a browser"
+        string name: "surefire", defaultValue: "src/test/resources/testng-smoke.xml", description: "surefire path",
+    }
+
     tools{
          maven "3.8.6"
          jdk "JAVA"
@@ -18,7 +19,7 @@ pipeline {
                 git "https://github.com/alex-evt/saucedemo.git"
 
                 //Run Maven on a Windows agent
-                bat 'mvn -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/testng-smoke.xml clean test'
+                bat 'mvn -Dbrowser=${browser} -Dsurefire.suiteXmlFiles=${surefire} clean test'
             }
         }
 
