@@ -2,8 +2,10 @@ package org.tms.model;
 
 public class User {
 
-    private String login = "standard_user";
-    private String password = "secret_sauce";
+//    private String login = "standard_user";
+//    private String password = "secret_sauce";
+    private String login = System.getenv("LOGIN");
+    private String password = System.getenv("PASSWORD");
 
     public User() {
     }

@@ -1,20 +1,24 @@
 pipeline {
     agent any
 
-    parameters{
+    parameters {
         choice name: "browser", choices: ['chrome','firefox','opera'], description: "Choose a browser"
         string name: "surefire", defaultValue: "src/test/resources/testng-smoke.xml", description: "surefire path"
     }
 
-    tools{
+    environment {
+        LOGIN = "standard_user"
+        PASSWORD = "secret_sauce"
+    }
+
+    tools {
          maven "3.8.6"
          jdk "JAVA"
     }
 
     stages {
-        stage('Build'){
+        stage('Building') {
             steps{
-                echo 'Building...'
                 // Get code from GitHub repository
                 git "https://github.com/alex-evt/saucedemo.git"
 
@@ -23,7 +27,7 @@ pipeline {
             }
         }
 
-        stage('Reporting'){
+        stage('Reporting') {
             steps{
                 script{
                     allure([
