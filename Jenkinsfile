@@ -3,7 +3,7 @@ pipeline {
 
     parameters{
         choice name: "browser", choices: ['chrome','firefox','opera'], description: "Choose a browser"
-        string name: "surefire", defaultValue: "src/test/resources/testng-smoke.xml", description: "surefire path",
+        string name: "surefire", defaultValue: "src/test/resources/testng-smoke.xml", description: "surefire path"
     }
 
     tools{
