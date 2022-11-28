@@ -23,7 +23,7 @@ pipeline {
                 git "https://github.com/alex-evt/saucedemo.git"
 
                 //Run Maven on a Windows agent
-                bat 'mvn -Dbrowser=${browser} -Dsurefire.suiteXmlFiles=${surefire} clean test'
+                bat 'mvn -Dmaven.test.failure.ignore=true -Dbrowser=${browser} -Dsurefire.suiteXmlFiles=${surefire} clean test'
             }
         }
 
