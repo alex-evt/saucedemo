@@ -63,6 +63,6 @@ public class Listener implements ITestListener {
     }
     @Attachment(value = "screenshot", type = "image/png")
     public byte[] takeScreenshot(){
-        return ((TakesScreenshot) DriverSingleton.getDriver()).getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot) DriverSingleton.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }

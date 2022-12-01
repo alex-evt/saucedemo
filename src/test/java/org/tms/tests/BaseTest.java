@@ -14,11 +14,11 @@ public class BaseTest {
 
     @BeforeClass
     public void startBrowser(){
-        driver = DriverSingleton.getDriver();
+        driver = DriverSingleton.getInstance().getDriver();
     }
 
     @AfterClass(alwaysRun = true)
     public void stopBrowser(){
-        DriverSingleton.closeDriver();
+        DriverSingleton.getInstance().closeDriver();
     }
 }
