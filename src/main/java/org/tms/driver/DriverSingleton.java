@@ -1,11 +1,13 @@
 package org.tms.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 
+@Log4j2
 public class DriverSingleton {
 
     private static WebDriver driver;
@@ -27,8 +29,12 @@ public class DriverSingleton {
                     break;
                 }
                 default: {
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    try {
+                        WebDriverManager.chromedriver().setup();
+                        driver = new ChromeDriver();
+                    } catch (Exception e) {
+                        log.fatal("FATAL: Driver did not start!");
+                    }
                 }
             }
             driver.manage().window().maximize();

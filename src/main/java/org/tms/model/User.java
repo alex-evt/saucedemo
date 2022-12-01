@@ -1,11 +1,17 @@
 package org.tms.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
 public class User {
 
-//    private String login = "standard_user";
-//    private String password = "secret_sauce";
-    private String login = System.getenv("LOGIN");
-    private String password = System.getenv("PASSWORD");
+    private String login = "standard_user";
+    private String password = "secret_sauce";
+//    private String login = System.getenv("LOGIN");
+//    private String password = System.getenv("PASSWORD");
 
     public User() {
     }

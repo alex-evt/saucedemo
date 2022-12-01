@@ -1,9 +1,11 @@
 package org.tms.services;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.tms.pages.CartPage;
 import org.tms.pages.InventoryPage;
 
+@Log4j2
 public class InventoryPageService {
 
     private static final String INVENTORY_URL = "https://www.saucedemo.com/inventory";
@@ -23,6 +25,7 @@ public class InventoryPageService {
     }
     @Step("Selecting second option in the sort product dropdown")
     public String getTextAndSelectSecondOptionInSortContainer() {
+        log.info("Selecting second option in the sort product dropdown");
         return inventoryPage
                 .waitForSauceLabsOnesieImage()
                 .selectOptionByTextInTheProductSortSelector(SECOND_OPTION_PRODUCT_SORT)
@@ -42,6 +45,7 @@ public class InventoryPageService {
     }
     @Step("Verify adding to cart and go to cart ")
     public CartPage addToCartSauceLabsOnesie() {
+        log.info("Verify adding to cart and go to cart");
         inventoryPage
                 .clickAddToCartButtonSauceLabsOnesie()
                 .clickShoppingCart();
